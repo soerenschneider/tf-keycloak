@@ -1,6 +1,7 @@
 resource "keycloak_openid_client" "client" {
   realm_id  = var.realm_id
   client_id = var.client_id
+  client_secret = try(var.client_secret, null)
 
   enabled = true
 

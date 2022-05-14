@@ -122,7 +122,8 @@ resource "keycloak_realm" "realm" {
 
 module "clients" {
   source = "./clients"
-  client_id = ""
+  client_id = "nginx"
+  client_secret = "iAAND3HSOHgGq242iZPsX4seSS4mcggu"
   realm_id = keycloak_realm.realm.id
-  redirect_urls = ["http://bla.de"]
+  redirect_urls = ["*"]
 }

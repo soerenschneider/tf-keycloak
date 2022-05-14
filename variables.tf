@@ -1,6 +1,6 @@
 variable "realm_name" {
   type = string
-  default = "middle earth"
+  default = "gondor"
 }
 
 variable "realm_enabled" {
@@ -10,7 +10,7 @@ variable "realm_enabled" {
 
 variable "realm_display_name" {
   type = string
-  default = "middle earth"
+  default = "gondor"
 }
 
 variable "realm_display_name_html" {
