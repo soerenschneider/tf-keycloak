@@ -1,8 +1,9 @@
 # tf-keycloak
 
-![terratest](https://github.com/soerenschneider/tf-keycloak/actions/workflows/terratest.yaml/badge.svg)
+![gitleaks](https://github.com/soerenschneider/tf-keycloak/actions/workflows/gitleaks.yaml/badge.svg)
 ![lint-workflow](https://github.com/soerenschneider/tf-keycloak/actions/workflows/lint.yaml/badge.svg)
 ![security-workflow](https://github.com/soerenschneider/tf-keycloak/actions/workflows/security.yaml/badge.svg)
+![terratest](https://github.com/soerenschneider/tf-keycloak/actions/workflows/terratest.yaml/badge.svg)
 
 This repository implements Infrastructure as Code (IaC) using [OpenTofu](https://opentofu.org/) to configure Keycloak and write OpenID client secrets to Hashicorp Vault.
 
