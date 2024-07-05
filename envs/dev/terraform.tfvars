@@ -7,7 +7,7 @@ clients = {
   grafana = {
     client_id = "grafana",
     #checkov:skip=CKV_SECRET_6:local dev environment
-    secret_id = "XQldTKiMwYyWPEarMJrI4DGrFFguct6Y"
+    secret_id = "XQldTKiMwYyWPEarMJrI4DGrFFguct6Y" #gitleaks:allow
     redirect_urls = [
       "http://localhost:3000/*",
       "http://grafana:3000/*",
@@ -21,7 +21,7 @@ clients = {
   whoami = {
     client_id = "whoami",
     #checkov:skip=CKV_SECRET_6:local dev environment
-    secret_id = "rU82vBEqhHlRWyOiqdxhJaxlonQgd0qS"
+    secret_id = "rU82vBEqhHlRWyOiqdxhJaxlonQgd0qS" #gitleaks:allow
     redirect_urls = [
       "http://localhost:4180/*",
       "http://oauth2-proxy:4180/*",
