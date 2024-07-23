@@ -69,6 +69,7 @@ services:
       GF_AUTH_GENERIC_OAUTH_CLIENT_ID: grafana
       GF_AUTH_GENERIC_OAUTH_SCOPES: openid email profile offline_access roles
       GF_AUTH_GENERIC_OAUTH_AUTH_URL: http://keycloak:8080/realms/myrealm/protocol/openid-connect/auth
+      #checkov:skip=CKV_SECRET_6:local dev environment
       GF_AUTH_GENERIC_OAUTH_TOKEN_URL: http://keycloak:8080/realms/myrealm/protocol/openid-connect/token
       GF_AUTH_GENERIC_OAUTH_API_URL: http://keycloak:8080/realms/myrealm/protocol/openid-connect/userinfo
       GF_AUTH_GENERIC_OAUTH_EMAIL_ATTRIBUTE_PATH: email
