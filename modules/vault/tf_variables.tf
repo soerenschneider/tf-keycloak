@@ -6,22 +6,29 @@ variable "access_keys" {
   })
 }
 
-variable "path" {
-  type        = string
+variable "password_store_paths" {
+  type        = list(string)
   description = "Paths to write the secret to."
 
   validation {
-    condition     = length(var.path) >= 5
+    condition = alltrue([
+      for path in var.password_store_paths : length(path) >= 5
+    ])
     error_message = "Each path in password_store_paths must be at least 5 characters long."
   }
 
   validation {
-    condition     = !startswith(var.path, "/") && !endswith(var.path, "/")
+    condition = alltrue([
+      for path in var.password_store_paths :
+      !startswith(path, "/") && !endswith(path, "/")
+    ])
     error_message = "Each path in password_store_paths must not start or end with a slash ('/')."
   }
 
   validation {
-    condition     = can(regex("%s", var.path))
+    condition = alltrue([
+      for path in var.password_store_paths : can(regex("%s", path))
+    ])
     error_message = "Each path in password_store_paths must contain the substring '%s'."
   }
 }

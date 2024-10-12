@@ -1,5 +1,6 @@
 locals {
-  env = basename(abspath(path.module))
+  instance                     = basename(abspath(path.module))
+  password_store_paths_default = ["env/${local.instance}/minio/serviceaccount/%s"]
 }
 
 module "realm" {
@@ -17,15 +18,15 @@ module "flow" {
 }
 
 module "clients" {
-  for_each      = var.clients
-  source        = "../../modules/keycloak_clients"
-  name          = each.key
-  client_id     = coalesce(each.value.client_id, each.key)
-  realm_id      = module.realm.realm_id
-  redirect_urls = each.value.redirect_urls
-  roles         = coalesce(each.value.roles, [])
-  secret_id     = each.value.secret_id
-  flow_id       = module.flow.flow_id
+  for_each             = var.clients
+  source               = "../../modules/keycloak_clients"
+  name                 = each.key
+  client_id            = coalesce(each.value.client_id, each.key)
+  realm_id             = module.realm.realm_id
+  redirect_urls        = each.value.redirect_urls
+  roles                = coalesce(each.value.roles, [])
+  secret_id            = each.value.secret_id
+  flow_id              = module.flow.flow_id
 }
 
 module "users" {
@@ -45,11 +46,11 @@ module "users" {
 }
 
 module "vault" {
-  for_each    = var.clients
-  source      = "../../modules/vault"
-  access_keys = nonsensitive(module.clients[each.key].access_keys)
-  path        = "env/${local.env}/keycloak/clients/%s"
+  for_each             = var.clients
+  source               = "../../modules/vault"
+  access_keys          = nonsensitive(module.clients[each.key].access_keys)
+  password_store_paths = coalescelist(each.value.password_store_paths, var.password_store_paths, local.password_store_paths_default)
   metadata = {
-    env = local.env
+    env = local.instance
   }
 }

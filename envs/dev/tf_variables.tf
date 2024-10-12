@@ -10,10 +10,11 @@ variable "realm" {
 
 variable "clients" {
   type = map(object({
-    client_id     = string
-    secret_id     = optional(string)
-    redirect_urls = list(string)
-    roles         = optional(set(string))
+    client_id            = string
+    secret_id            = optional(string)
+    redirect_urls        = list(string)
+    roles                = optional(set(string))
+    password_store_paths = optional(list(string))
   }))
 }
 
@@ -26,4 +27,10 @@ variable "users" {
     enabled      = optional(bool, true)
     client_roles = map(set(string))
   }))
+}
+
+variable "password_store_paths" {
+  type        = list(string)
+  default     = []
+  description = "Password storage path"
 }

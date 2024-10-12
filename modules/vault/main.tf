@@ -1,6 +1,7 @@
-resource "vault_kv_secret_v2" "access_keys" {
+resource "vault_kv_secret_v2" "tokens" {
+  for_each            = { for path in var.password_store_paths : path => path }
   mount               = var.vault_kv2_mount
-  name                = format(var.path, var.access_keys.name)
+  name                = format(each.value, var.access_keys.name)
   delete_all_versions = true
   data_json = jsonencode(
     {
@@ -9,7 +10,7 @@ resource "vault_kv_secret_v2" "access_keys" {
     }
   )
   custom_metadata {
-    max_versions = 2
+    max_versions = 1
     data         = var.metadata
   }
 }
