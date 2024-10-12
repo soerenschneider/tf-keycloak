@@ -20,7 +20,7 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [vault_kv_secret_v2.access_keys](https://registry.terraform.io/providers/hashicorp/vault/4.2.0/docs/resources/kv_secret_v2) | resource |
+| [vault_kv_secret_v2.tokens](https://registry.terraform.io/providers/hashicorp/vault/4.2.0/docs/resources/kv_secret_v2) | resource |
 
 ## Inputs
 
@@ -28,7 +28,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_access_keys"></a> [access\_keys](#input\_access\_keys) | n/a | <pre>object({<br>    name      = string,<br>    client_id = string,<br>    secret_id = string<br>  })</pre> | n/a | yes |
 | <a name="input_metadata"></a> [metadata](#input\_metadata) | Optional metadata to attach to the secret. | `map(any)` | `null` | no |
-| <a name="input_path"></a> [path](#input\_path) | Paths to write the secret to. | `string` | n/a | yes |
+| <a name="input_password_store_paths"></a> [password\_store\_paths](#input\_password\_store\_paths) | Paths to write the secret to. | `list(string)` | n/a | yes |
 | <a name="input_vault_kv2_mount"></a> [vault\_kv2\_mount](#input\_vault\_kv2\_mount) | n/a | `string` | `"secret"` | no |
 
 ## Outputs
