@@ -1,6 +1,6 @@
 locals {
   instance                     = basename(abspath(path.module))
-  password_store_paths_default = ["env/${local.instance}/minio/serviceaccount/%s"]
+  password_store_paths_default = ["env/${local.instance}/keycloak/clients/%s"]
 }
 
 module "realm" {
