@@ -1,0 +1,87 @@
+---
+services:
+  oauth2-proxy:
+    image: quay.io/oauth2-proxy/oauth2-proxy:v7.8.1
+    restart: always
+    ports:
+      - "4180:4180"
+    environment:
+      OAUTH2_PROXY_PROVIDER: keycloak-oidc
+      OAUTH2_PROXY_CLIENT_ID: whoami
+      #checkov:skip=CKV_SECRET_6:local dev environment
+      OAUTH2_PROXY_CLIENT_SECRET: rU82vBEqhHlRWyOiqdxhJaxlonQgd0qS #gitleaks:allow
+      OAUTH2_PROXY_REDIRECT_URL: "http://oauth2-proxy:4180"
+      OAUTH2_PROXY_OIDC_ISSUER_URL: http://keycloak:8080/realms/test
+      OAUTH2_PROXY_ALLOWED_ROLE: "bla"
+      OAUTH2_PROXY_UPSTREAMS: "http://whoami:8080"
+      #checkov:skip=CKV_SECRET_6:local dev environment
+      OAUTH2_PROXY_COOKIE_SECRET: q_6A1CtSYFi-GK9crHCKszRxQ2g9op7-DZ6ShUbzoyc= #gitleaks:allow
+      OAUTH2_PROXY_COOKIE_SECURE: "false"
+      OAUTH2_PROXY_COOKIE_DOMAIN: "oauth2-proxy"
+      OAUTH2_PROXY_EMAIL_DOMAINS: "*"
+      OAUTH2_PROXY_SSL_UPSTREAM_INSECURE_SKIP_VERIFY: "true"
+      OAUTH2_PROXY_SSL_INSECURE_SKIP_VERIFY: "true"
+      OAUTH2_PROXY_ERRORS_TO_INFO_LOG: "true"
+      OAUTH2_PROXY_HTTP_ADDRESS: http://:4180
+      OAUTH2_PROXY_COOKIE_CSRF_PER_REQUEST: "true"
+      OAUTH2_PROXY_COOKIE_CSRF_EXPIRE: 5m
+    networks:
+      - test
+
+  vault:
+    image: public.ecr.aws/hashicorp/vault:1.19.0
+    restart: always
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: "test"
+      VAULT_DEV_LISTEN_ADDRESS: 0.0.0.0:8200
+    ports:
+      - "8200:8200"
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.1.4
+    restart: always
+    command:
+      - start-dev
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    ports:
+      - "8080:8080"
+      - "9000:9000"
+    networks:
+      - test
+
+  whoami:
+    image: ghcr.io/mccutchen/go-httpbin:2.18
+    ports:
+      - "8080"
+    networks:
+        - test
+
+  grafana:
+    image: grafana/grafana:11.5.2
+    ports:
+      - "3000:3000"
+    environment:
+      GF_AUTH_GENERIC_OAUTH_ENABLED: "true"
+      GF_AUTH_GENERIC_OAUTH_NAME: keycloak
+      GF_AUTH_GENERIC_OAUTH_ALLOW_SIGN_UP: "true"
+      GF_AUTH_GENERIC_OAUTH_CLIENT_ID: grafana
+      GF_AUTH_GENERIC_OAUTH_SCOPES: openid email profile offline_access roles
+      GF_AUTH_GENERIC_OAUTH_AUTH_URL: http://keycloak:8080/realms/test/protocol/openid-connect/auth
+      #checkov:skip=CKV_SECRET_6:local dev environment
+      GF_AUTH_GENERIC_OAUTH_TOKEN_URL: http://keycloak:8080/realms/test/protocol/openid-connect/token
+      GF_AUTH_GENERIC_OAUTH_API_URL: http://keycloak:8080/realms/test/protocol/openid-connect/userinfo
+      GF_AUTH_GENERIC_OAUTH_EMAIL_ATTRIBUTE_PATH: email
+      GF_AUTH_GENERIC_OAUTH_LOGIN_ATTRIBUTE_PATH: username
+      GF_AUTH_GENERIC_OAUTH_ROLE_ATTRIBUTE_PATH: contains(roles[*], 'admin') && 'Admin' || contains(roles[*], 'editor') && 'Editor' || 'Viewer'
+      GF_SERVER_DOMAIN: grafana
+      GF_SERVER_ROOT: http://grafana:3000
+      #checkov:skip=CKV_SECRET_6:local dev environment
+      GF_AUTH_GENERIC_OAUTH_CLIENT_SECRET: XQldTKiMwYyWPEarMJrI4DGrFFguct6Y #gitleaks:allow
+    networks:
+        - test
+
+
+networks:
+  test: {}
