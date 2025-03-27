@@ -20,6 +20,7 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [keycloak_openid_client_scope.openid_client_scope](https://registry.terraform.io/providers/keycloak/keycloak/5.1.1/docs/resources/openid_client_scope) | resource |
 | [keycloak_realm.realm](https://registry.terraform.io/providers/keycloak/keycloak/5.1.1/docs/resources/realm) | resource |
 | [keycloak_required_action.custom-configured_totp](https://registry.terraform.io/providers/keycloak/keycloak/5.1.1/docs/resources/required_action) | resource |
 
