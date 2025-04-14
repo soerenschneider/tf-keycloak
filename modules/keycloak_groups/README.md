@@ -4,14 +4,14 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.7.0 |
-| <a name="requirement_keycloak"></a> [keycloak](#requirement\_keycloak) | 5.1.1 |
+| <a name="requirement_keycloak"></a> [keycloak](#requirement\_keycloak) | 5.2.0 |
 | <a name="requirement_random"></a> [random](#requirement\_random) | 3.7.1 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_keycloak"></a> [keycloak](#provider\_keycloak) | 5.1.1 |
+| <a name="provider_keycloak"></a> [keycloak](#provider\_keycloak) | 5.2.0 |
 
 ## Modules
 
@@ -21,9 +21,9 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [keycloak_group.group](https://registry.terraform.io/providers/keycloak/keycloak/5.1.1/docs/resources/group) | resource |
-| [keycloak_group_memberships.group_members](https://registry.terraform.io/providers/keycloak/keycloak/5.1.1/docs/resources/group_memberships) | resource |
-| [keycloak_group_roles.group_roles](https://registry.terraform.io/providers/keycloak/keycloak/5.1.1/docs/resources/group_roles) | resource |
+| [keycloak_group.group](https://registry.terraform.io/providers/keycloak/keycloak/5.2.0/docs/resources/group) | resource |
+| [keycloak_group_memberships.group_members](https://registry.terraform.io/providers/keycloak/keycloak/5.2.0/docs/resources/group_memberships) | resource |
+| [keycloak_group_roles.group_roles](https://registry.terraform.io/providers/keycloak/keycloak/5.2.0/docs/resources/group_roles) | resource |
 
 ## Inputs
 
