@@ -4,13 +4,13 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.7.0 |
-| <a name="requirement_keycloak"></a> [keycloak](#requirement\_keycloak) | 5.1.1 |
+| <a name="requirement_keycloak"></a> [keycloak](#requirement\_keycloak) | 5.2.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_keycloak"></a> [keycloak](#provider\_keycloak) | 5.1.1 |
+| <a name="provider_keycloak"></a> [keycloak](#provider\_keycloak) | 5.2.0 |
 
 ## Modules
 
@@ -20,10 +20,10 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [keycloak_openid_audience_protocol_mapper.audience_mapper](https://registry.terraform.io/providers/keycloak/keycloak/5.1.1/docs/resources/openid_audience_protocol_mapper) | resource |
-| [keycloak_openid_client.client](https://registry.terraform.io/providers/keycloak/keycloak/5.1.1/docs/resources/openid_client) | resource |
-| [keycloak_openid_user_client_role_protocol_mapper.user_client_role_mapper](https://registry.terraform.io/providers/keycloak/keycloak/5.1.1/docs/resources/openid_user_client_role_protocol_mapper) | resource |
-| [keycloak_role.roles](https://registry.terraform.io/providers/keycloak/keycloak/5.1.1/docs/resources/role) | resource |
+| [keycloak_openid_audience_protocol_mapper.audience_mapper](https://registry.terraform.io/providers/keycloak/keycloak/5.2.0/docs/resources/openid_audience_protocol_mapper) | resource |
+| [keycloak_openid_client.client](https://registry.terraform.io/providers/keycloak/keycloak/5.2.0/docs/resources/openid_client) | resource |
+| [keycloak_openid_user_client_role_protocol_mapper.user_client_role_mapper](https://registry.terraform.io/providers/keycloak/keycloak/5.2.0/docs/resources/openid_user_client_role_protocol_mapper) | resource |
+| [keycloak_role.roles](https://registry.terraform.io/providers/keycloak/keycloak/5.2.0/docs/resources/role) | resource |
 
 ## Inputs
 

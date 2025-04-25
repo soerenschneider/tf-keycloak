@@ -4,13 +4,13 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.7.0 |
-| <a name="requirement_keycloak"></a> [keycloak](#requirement\_keycloak) | 5.1.1 |
+| <a name="requirement_keycloak"></a> [keycloak](#requirement\_keycloak) | 5.2.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_keycloak"></a> [keycloak](#provider\_keycloak) | 5.1.1 |
+| <a name="provider_keycloak"></a> [keycloak](#provider\_keycloak) | 5.2.0 |
 
 ## Modules
 
@@ -20,9 +20,9 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [keycloak_openid_client_scope.openid_client_scope](https://registry.terraform.io/providers/keycloak/keycloak/5.1.1/docs/resources/openid_client_scope) | resource |
-| [keycloak_realm.realm](https://registry.terraform.io/providers/keycloak/keycloak/5.1.1/docs/resources/realm) | resource |
-| [keycloak_required_action.custom-configured_totp](https://registry.terraform.io/providers/keycloak/keycloak/5.1.1/docs/resources/required_action) | resource |
+| [keycloak_openid_client_scope.openid_client_scope](https://registry.terraform.io/providers/keycloak/keycloak/5.2.0/docs/resources/openid_client_scope) | resource |
+| [keycloak_realm.realm](https://registry.terraform.io/providers/keycloak/keycloak/5.2.0/docs/resources/realm) | resource |
+| [keycloak_required_action.custom-configured_totp](https://registry.terraform.io/providers/keycloak/keycloak/5.2.0/docs/resources/required_action) | resource |
 
 ## Inputs
 

@@ -4,14 +4,14 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.7.0 |
-| <a name="requirement_keycloak"></a> [keycloak](#requirement\_keycloak) | 5.1.1 |
+| <a name="requirement_keycloak"></a> [keycloak](#requirement\_keycloak) | 5.2.0 |
 | <a name="requirement_random"></a> [random](#requirement\_random) | 3.7.1 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_keycloak"></a> [keycloak](#provider\_keycloak) | 5.1.1 |
+| <a name="provider_keycloak"></a> [keycloak](#provider\_keycloak) | 5.2.0 |
 | <a name="provider_random"></a> [random](#provider\_random) | 3.7.1 |
 
 ## Modules
@@ -22,8 +22,8 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [keycloak_user.user_with_initial_password](https://registry.terraform.io/providers/keycloak/keycloak/5.1.1/docs/resources/user) | resource |
-| [keycloak_user_roles.user_roles](https://registry.terraform.io/providers/keycloak/keycloak/5.1.1/docs/resources/user_roles) | resource |
+| [keycloak_user.user_with_initial_password](https://registry.terraform.io/providers/keycloak/keycloak/5.2.0/docs/resources/user) | resource |
+| [keycloak_user_roles.user_roles](https://registry.terraform.io/providers/keycloak/keycloak/5.2.0/docs/resources/user_roles) | resource |
 | [random_password.password](https://registry.terraform.io/providers/hashicorp/random/3.7.1/docs/resources/password) | resource |
 
 ## Inputs
