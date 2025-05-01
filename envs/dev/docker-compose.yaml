@@ -29,7 +29,7 @@ services:
       - test
 
   vault:
-    image: public.ecr.aws/hashicorp/vault:1.19.0
+    image: public.ecr.aws/hashicorp/vault:1.19.3
     restart: always
     environment:
       VAULT_DEV_ROOT_TOKEN_ID: "test"
