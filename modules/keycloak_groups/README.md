@@ -5,7 +5,7 @@
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.7.0 |
 | <a name="requirement_keycloak"></a> [keycloak](#requirement\_keycloak) | 5.1.1 |
-| <a name="requirement_random"></a> [random](#requirement\_random) | 3.7.1 |
+| <a name="requirement_random"></a> [random](#requirement\_random) | 3.7.2 |
 
 ## Providers
 
