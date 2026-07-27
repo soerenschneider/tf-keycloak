@@ -52,7 +52,7 @@ services:
       - test
 
   whoami:
-    image: ghcr.io/mccutchen/go-httpbin:2.18
+    image: ghcr.io/mccutchen/go-httpbin:2.25
     ports:
       - "8080"
     networks:
